@@ -3,6 +3,8 @@ from datetime import datetime
 import re
 import settings
 import pandas as pd
+import locale
+
 
 
 ROW_ID = 0
@@ -21,7 +23,7 @@ def process_date(date):
         return date
     if len(date) < 8:
         return None
-    locale.setlocale(locale.LC_TIME, 'ru')
+    locale.setlocale(locale.LC_ALL, ("ru_RU", "UTF-8"))
     date = date.lower().strip()
     groups = [*re.match(r'(\d+).*?([А-Яа-я0-9]+).*?(\d+)', date).groups()]
 
@@ -30,7 +32,6 @@ def process_date(date):
     else:
         year_format = 'Y'
     if groups[1].isalpha():
-        groups[1] = settings.MONTH_DECLENSIONS.get(groups[1], groups[1])
         month_format = 'B'
     else:
         month_format = 'm'
