@@ -7,7 +7,7 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(description='Поиск сравнений между .dic(x) и .xls(x) файлами')
-    parser.add_argument('-p', '--path', required=True, metavar=None,
+    parser.add_argument('-p', '--path', default='files', metavar=None,
                         help='Абсолютный или относительный путь к папке с .doc(x) и .xls(x) файлами')
     parser.add_argument('-up', '--upload-path', default=Path(__file__).parent.absolute(), required=False,
                         help=r'Путь для сохранения результата: C:\Users\Ivan\Рабочий стол')

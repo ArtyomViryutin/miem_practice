@@ -51,7 +51,6 @@ DOCX_COLUMNS_WIDTH = {2: 30, 3: 15, 4: 20}
 XLSX_COLUMNS_WIDTH = {1: 15, 2: 30, 3: 20, 5: 20}
 
 
-
 def match(row1, row2):
     """
     Способ сравнения двух строк в соответствии с DOCX_COLUMNS и XLSX_COLUMNS: row1 - docx, row2 - xlsx
